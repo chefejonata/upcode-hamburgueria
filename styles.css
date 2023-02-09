@@ -1,0 +1,14 @@
+:root{
+    --bege: #FFE9A0;
+    --verde: #367E18;
+    --laranja: #F57328;
+    --vermelho: #CC3636;
+}
+
+*, ::after, ::before
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*NDN Docs*/
+}
+
