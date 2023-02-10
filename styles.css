@@ -3,6 +3,9 @@
     --verde: #367E18;
     --laranja: #F57328;
     --vermelho: #CC3636;
+    --preto: #000000;
+    --cinza: #373737;
+    --branco: #FFFFFF;
 }
 
 *, ::after, ::before
@@ -37,4 +40,9 @@
     height: 4rem;
     width: 4rem;
 
+}
+
+.footer{
+    background-color: var(--vermelho);
+    height: 13,875rem;
 }
