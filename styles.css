@@ -12,3 +12,29 @@
     box-sizing: border-box; /*NDN Docs*/
 }
 
+.cabecalho{
+    align-items: center;
+    background-color: var(--bege);
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+
+}
+
+.cabecalho__menu {
+    background: none;
+    border: none;
+    left: 1rem;
+    position: absolute;
+    cursor: pointer;
+}
+
+.cabecalho__menu--icone{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.cabecalho__logo{
+    height: 4rem;
+    width: 4rem;
+
+}
