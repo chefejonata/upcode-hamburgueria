@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 :root{
     --bege: #FFE9A0;
     --verde: #367E18;
@@ -45,4 +47,47 @@
 .footer{
     background-color: var(--vermelho);
     height: 13,875rem;
+    text-align: center;
+    padding: 25px;
+    text-decoration: none;
+    font-family: "Montserrat", sans;
+    
+     
+}
+.texto-link{
+    display: flex;
+    margin: 12px;
+    color: var(--branco);
+    text-decoration: none;
+    
+}
+.link{
+    list-style: none;
+    display: flex;
+    gap: 22px;
+    
+}
+
+.link .link-texto .link__texto {
+    text-decoration: none;
+    color: var(--branco);
+    
+}
+
+.texto-footer{
+    padding: 0.8rem;
+    color: var(--branco);
+    width: 400;
+    
+}
+.imagem-logo{
+    padding: 15px;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.politica{
+    border-top: 1px solid var(--branco);
+    padding: 15px 0 0 0;
 }
