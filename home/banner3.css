@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+    --bege: #FFE9A0;
+    --verde: #367E18;
+    --laranja: #F57328;
+    --vermelho: #CC3636;
+    --preto: #000000;
+    --cinza: #373737;
+    --branco: #FFFFFF;
+    
+    --fonte:'Montserrat', sans-serif;
+}
+
+.banner3 {
+    text-align: center;
+}
+
+
+.legenda_banner3 {
+      
+      font-family: var(--fonte);
+      font-weight: 600;
+}
