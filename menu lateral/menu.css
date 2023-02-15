@@ -9,11 +9,31 @@
     --branco: #FFFFFF;
     --verde-claro:#C5DCBB
 }
-body{
 
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
     height: 600px;
 }
 
+.menu{
+    position: absolute;
+    height: 100%;
+    width: 70%;
+    left: -70%;
+    transition: left .5s ease-in-out;
+}
+
+
+.ativa{
+    left: 0;
+    transition: left .7s ease-in-out;
+}
 
 .menu-itens{
     background-color: var(--verde-claro);
@@ -21,7 +41,7 @@ body{
     height: 100%;
     
 }
-.botao-sair{
+.botao {
     width: 100%;
     display: flex;
     justify-content: end;

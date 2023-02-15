@@ -10,31 +10,43 @@
     <title>Hamburgueria UpCode</title>
 </head>
 
-<body>
-  
-    <header class="menu-itens">
-             <div class="botao-sair">
-                  <img class="imagem-sair" src="logosair.svg" alt="icone sair">
-             </div>
-   
-        <div class="menu">
-            <label>
-
-            </label>
-            <ul class="link">
-                <li>
-                    <a href="#">Pedidos</a>
-                </li>
-                <li>
-                    <a href="#">Cardapio</a>
-                </li>
-                <li>
-                    <a href="#">Contatos</a>
-                </li>
-            </ul>
+<body class="teste">
+    <aside class="menu">
+            <div class="botao sair">
+                <img class="imagem-sair" src="logosair.svg" alt="icone sair">
         </div>
-    </header>
+        <ul class="link">
+            <li>
+                <a href="#">Pedidos</a>
+            </li>
+            <li>
+                <a href="#">Cardapio</a>
+            </li>
+            <li>
+                <a href="#">Contatos</a>
+            </li>
+        </ul>
+    </aside>
+    <button class="botao abrir">Ativar Menu</button>
 </body>
-<script src="./index.js"></script>
+<script>
+    let menu = document.querySelector(".menu");
+    let teste = document.querySelector(".teste");
+    let btns = document.querySelectorAll(".botao");
+
+    teste.addEventListener("click", (e)=>{
+        if(e.target.classList.contains("teste"))
+        {
+            menu.classList.remove("ativa");
+        }
+    })
+
+    for(let btn of btns)
+    {
+        btn.addEventListener("click", (e) =>{
+        menu.classList.toggle("ativa");
+        })
+    }
+</script>
 
 </html>
