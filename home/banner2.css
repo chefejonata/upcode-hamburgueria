@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root{
+    --laranja: #F57328;
+    --branco: #FFFFFF;
+    --fonte:'Montserrat', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.banner2{
+    font-family: var(--fonte);
+    display: flex;
+    margin: 15px 15px;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.titulo_banner2{
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 10px;
+}
+
+.descricao_banner2{
+    font-size: 12px;
+
+}
