@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="./styles.css">
     <title>Hamburgueria UpCode</title>
 </head>
-<body>
+<body class="gambiarra">
     <aside class="menu">
-        <div class="botao sair">
+        <div class="botao sair menu-abrir">
             <img class="imagem-sair" src="../menu lateral/logosair.svg" alt="icone sair">
     </div>
     <ul class="link">
@@ -25,7 +25,7 @@
     </ul>
 </aside>
     <header class="cabecalho">
-        <button class="cabecalho__menu">
+        <button class="cabecalho__menu menu-abrir">
             <img class="cabecalho__menu--icone"src="../assets/header/menu-hamburguer.svg" alt="Abrir Menu" class="cabecalho__menu--icon">
         </button>
         <img  class="cabecalho__logo" src="../assets/header/logo.svg" alt="Logo UpBurger">
@@ -84,11 +84,23 @@
 <script>
     let menu = document.querySelector(".menu");
     let teste = document.querySelector(".teste");
-    let btn = document.querySelector(".cabecalho__menu");
+    let btns = document.querySelectorAll(".menu-abrir");
 
-    btn.addEventListener("click", (e) =>{
+    for (let btn of btns)
+    {
+        btn.addEventListener("click", (e) =>{
         menu.classList.toggle("ativa");
         });
+    }
+
+    let bd = document.querySelector(".gambiarra");
+
+    bd.addEventListener("click", (e) => {
+        if(e.target.parentNode.classList.contains("gambiarra"))
+        {
+           menu.classList.remove("ativa");
+        }
+    })
 
 </script>
 </html>
