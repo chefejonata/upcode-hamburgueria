@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles.css">
     <title>Hamburgueria UpCode</title>
 </head>
+
 <body class="gambiarra">
     <aside class="menu">
         <div class="botao sair menu-abrir">
@@ -24,6 +25,7 @@
         </li>
     </ul>
 </aside>
+
     <header class="cabecalho">
         <button class="cabecalho__menu menu-abrir">
             <img class="cabecalho__menu--icone"src="../assets/header/menu-hamburguer.svg" alt="Abrir Menu" class="cabecalho__menu--icon">
@@ -33,7 +35,7 @@
 
     <div class="banner__imagem">
         <div class="banner__btn">
-            <a href="" class="banner__link">MONTE SEU PEDIDO</a>
+            <a  href="#teste" class="banner__link">MONTE SEU PEDIDO</a>
         </div>
     </div>
 
@@ -55,7 +57,7 @@
        </div>
     </div>
 
-    <div class="banner3">
+    <div id="teste" class="banner3">
         <img src="../assets/banner/banner3.svg" alt="banner 3">
         <p class="legenda_banner3"> O melhor burguer da cidade. </p>
     </div>
@@ -81,10 +83,9 @@
             <P>Email-upburg@email.com</P>
             <P>Telefone (85) 94586-1457</P><br><br>
             <p class="politica">Politica de privacidade</p>
-            <p>© copyright - UP BURG 2023</p>
+            <p class="copyright">© copyright - UP BURG 2023</p>
         </div>
     </footer>
-
 </body>
 <script src="./index.js"></script>
 <script>
@@ -108,5 +109,10 @@
         }
     })
 
+    let footerDinamico = document.querySelector(".copyright");
+    let dataAtual = new Date();
+    let anoAtual = dataAtual.getFullYear();
+
+    footerDinamico.textContent = `© Copyright - UP BURGER ${anoAtual}`
 </script>
 </html>
