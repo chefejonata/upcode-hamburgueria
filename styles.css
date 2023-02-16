@@ -8,6 +8,8 @@
     --preto: #000000;
     --cinza: #373737;
     --branco: #FFFFFF;
+    --verde-claro:#C5DCBB;
+    --fonte:'Montserrat', sans-serif;
 }
 
 *, ::after, ::before
@@ -16,6 +18,67 @@
     padding: 0;
     box-sizing: border-box; /*NDN Docs*/
 }
+
+
+body{
+    position: relative;
+}
+
+.menu{
+    position: absolute;
+    height: 100%;
+    width: 70%;
+    left: -80%;
+    transition: left .5s ease-in-out;
+    background-color: var(--verde-claro);
+    z-index: 1;
+}
+
+
+.ativa{
+    left: 0;
+    transition: left .7s ease-in-out;
+}
+
+.menu-itens{
+    background-color: var(--verde-claro);
+    width: 80%;
+    height: 100%;
+    
+}
+.botao {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    background-color: var(--verde);
+}
+.imagem-sair{
+    margin: 8px;
+}
+li{
+    list-style-type: none;
+    margin-bottom: 22px;
+    
+}
+a{
+    text-decoration: none;
+    color: var(--preto);
+    
+    
+}
+.link{
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 25px;
+
+}
+.link:hover{
+    cursor: pointer;
+}
+
 
 .cabecalho{
     align-items: center;
@@ -41,6 +104,53 @@
 .cabecalho__logo{
     height: 4rem;
     width: 4rem;
+
+}
+
+.banner__1{
+    margin: 15px 15px;
+}
+
+.banner__1-texto{
+    font-family: var(--fonte);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 17px;
+}
+
+.banner__1-img{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.banner2{
+    font-family: var(--fonte);
+    display: flex;
+    margin: 15px 15px;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.banner3 {
+    text-align: center;
+}
+
+
+.legenda_banner3 {
+      
+      font-family: var(--fonte);
+      font-weight: 600;
+}
+
+.titulo_banner2{
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 10px;
+}
+
+.descricao_banner2{
+    font-size: 12px;
 
 }
 
