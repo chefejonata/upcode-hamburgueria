@@ -1,3 +1,17 @@
+let phases = [
+    {step: "Pães", isActive: false},
+    {step: "Carnes", isActive: false},
+    {step: "Queijos", isActive: false},
+]
+
+let feedback = document.querySelector(".feedback-pedido");
+
+feedback.innerHTML = phases.map(phase => {
+    return `<div class=${phase.isActive ? "active" : "step"}>
+                ${phase.step}
+            </div>`
+}).join("")
+
 const data = {
     paes: [
         {tipo: "Brioche", preco: 4.80},
@@ -63,7 +77,7 @@ const carne = `
 const queijo = `
 <div class="pedido-layout">
     <label for="queijos">Escolha seu tipo de queijo: </label>
-    <img src="https://bbqhost.com/wp-content/uploads/2021/10/3.-grilled-ground-beef-patty-720x405.jpg" />
+    <img src="https://revistamenu.com.br/wp-content/uploads/2019/08/gravidade-2-peq-1050x698.jpg" />
     <div class="pedido-actions">
         <button class="action prev">Anterior</button>
         <select id="queijos">
@@ -94,11 +108,13 @@ const btns = document.querySelectorAll(".action");
             if(btn.classList.contains("prox") && estado < estados.length - 1)
             {
                 displayPedido.innerHTML = estados[estado + 1];
+                document.querySelector(".resumo").innerHTML += `${Object.values(pedido)[estado].tipo}`
                 addBehavior();
                 addOptions();
                 estado++;
             } else if(btn.classList.contains("prev") && estado > 0){
                 displayPedido.innerHTML = estados[estado - 1];
+                document.querySelector(".resumo").innerHTML += `${Object.values(pedido)[estado].tipo}`
                 addBehavior();
                 addOptions();
                 estado--;

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+    --bege: #FFE9A0;
+    --verde: #367E18;
+    --laranja: #F57328;
+    --vermelho: #CC3636;
+    --preto: #000000;
+    --cinza: #373737;
+    --branco: #FFFFFF;
+}
+
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+.pedido-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFE9A0;
+    height: 300px;
+    padding: 1em;
+}
+
+.pedido-layout img{
+    max-width: 80%;
+    min-height: 200px;
+    margin: .5em;
+}
+
+.pedido-actions{
+   display: flex;
+   gap: .5em;
+   width: 80%;
+   justify-content: space-evenly;
+
+}
+
+.pedido-actions button
+{
+    padding: .5em;
+    cursor: pointer;
+}
+
+.pedido-actions option
+{
+    padding: 5em;
+    cursor: pointer;
+}
+
+.pedido-actions option:active{
+    background-color: var(--cinza);
+}
+
+.feedback-pedido{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.feedback-pedido div{
+    border: var(--cinza) solid 1px;
+    
+    padding: .5em;
+}
