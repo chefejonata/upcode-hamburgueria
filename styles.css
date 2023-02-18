@@ -38,7 +38,7 @@ body{
 
 .ativa{
     left: 0;
-    transition: left .7s ease-in-out;
+    transition: left .4s ease-in-out;
 }
 
 .menu-itens{
@@ -87,7 +87,7 @@ a{
     display: flex;
     height: fit-content;
     justify-content: center;
-
+    transition: filter .7s ease-out;
 }
 
 .cabecalho__menu {
@@ -99,8 +99,8 @@ a{
 }
 
 .cabecalho__menu--icone{
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 .cabecalho__logo{
     height: 4rem;
@@ -153,6 +153,7 @@ a{
 .banner__1-img{
     display: flex;
     justify-content: space-between;
+    transition: filter .7s ease-in-out;
 }
 
 
@@ -184,6 +185,19 @@ margin-bottom: 10px;
 .descricao_banner2{
     font-size: 12px;
 
+}
+
+
+.gambiarra{
+    transition: background-color .7s ease-out;
+}
+
+.body-blur{
+    opacity: .5;
+    filter:blur(1.5px);
+    transition: background-color 1.5s ease-in-out;
+    transition: filter .7s ease-in-out;
+    transition: opacity .7s ease-in-out;
 }
 
 .footer{

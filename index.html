@@ -92,20 +92,28 @@
     let menu = document.querySelector(".menu");
     let teste = document.querySelector(".teste");
     let btns = document.querySelectorAll(".menu-abrir");
+    let bd = document.querySelector(".gambiarra");
+    let header = document.querySelector(".cabecalho");
+    let banner = document.querySelector(".banner__imagem");
+    let bn = document.querySelector(".banner__1");
 
     for (let btn of btns)
     {
         btn.addEventListener("click", (e) =>{
         menu.classList.toggle("ativa");
+        header.classList.toggle("body-blur");
+        banner.classList.toggle("body-blur");
+        bn.classList.toggle("body-blur");
         });
     }
 
-    let bd = document.querySelector(".gambiarra");
+    
 
     bd.addEventListener("click", (e) => {
         if(e.target.parentNode.classList.contains("gambiarra"))
         {
            menu.classList.remove("ativa");
+           bd.classList.remove("body-blur");
         }
     })
 
