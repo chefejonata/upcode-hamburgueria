@@ -20,7 +20,17 @@ const data = {
         {tipo: "Suíço", preco: 7.60}
     ]
 }
+
 const resumo = document.querySelector(".resumo");
+let btnFinalizar = document.querySelector(".finalizar-pedido");
+btnFinalizar.addEventListener("click", () => {
+    let modal = document.createElement("div");
+    modal.innerHTML = `
+            <div class="modal">
+                <h3>Seu pedido foi realizado com sucesso!</h3>
+            </div>`;
+    document.body.appendChild(modal);
+})
 let pedido = {};
 
 const pão = `
@@ -107,35 +117,48 @@ const btns = document.querySelectorAll(".action");
 }
 
 
-(function(){
-    addBehavior();
-    addOptions();
-})();
-
-
-
 let resumoDiv = document.querySelector(".resumo__title");
 let total = document.querySelector(".total");
 
 
 function addOptions()
 {
+
     const options = document.querySelectorAll(".option");
-    for(let option of options)
-    {
+
+    options.forEach(option => {
         option.addEventListener("click", (e) =>{
-            pedidoFactory(data, e.target.parentNode.id, [e.target.value]);
-            resumoDiv.style.visibility = "visible";
-            atualizarDiv(e.target.parentNode.id, pedido[e.target.parentNode.id]);
-            total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
-            if(Object.keys(pedido).length >= 3)
-            {
-                document.querySelector(".finalizar-pedido").removeAttribute("disabled");
-            }
-        })
-    }
+        pedidoFactory(data, e.target.parentNode.id, e.target.value);
+        resumoDiv.style.visibility = "visible";
+        atualizarDiv(e.target.parentNode.id, pedido[e.target.parentNode.id]);
+        total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
+        if(Object.keys(pedido).length >= 3)
+        {
+           btnFinalizar.removeAttribute("disabled");
+        }
+    })
+})
+
+    // for(let option of options)
+    // {
+    //     option.addEventListener("click", (e) =>{
+    //         console.log("oi");
+    //         pedidoFactory(data, e.target.parentNode.id, e.target.value);
+    //         resumoDiv.style.visibility = "visible";
+    //         atualizarDiv(e.target.parentNode.id, pedido[e.target.parentNode.id]);
+    //         total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
+    //         if(Object.keys(pedido).length >= 3)
+    //         {
+    //            btnFinalizar.removeAttribute("disabled");
+    //         }
+    //     })
+    // }
 }
 
+(function(){
+    addBehavior();
+    addOptions();
+})();
 
 function pedidoFactory(data, query, index)
 {

@@ -18,6 +18,7 @@
 
 .pedido__section{
     background-color: var(--branco);
+    position: relative;
 }
 .pedido-layout{
     display: flex;
@@ -113,6 +114,7 @@
 .resumo__action{
     width: 100%;
     display: flex;
+    gap: .5em;
     justify-content: center;
 }
 
@@ -120,4 +122,15 @@
     padding: .9em;
     margin-bottom: .5em;
     cursor: pointer;
+}
+
+.modal {
+    padding: .7em;
+    width: 270px;
+    height: 600px;
+    background-color: var(--verde);
+    position: absolute;
+    top: 200px;
+    left: 60px;
+    z-index: 1000;
 }
