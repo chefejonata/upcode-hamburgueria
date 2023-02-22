@@ -1,10 +1,3 @@
-// let phases = [
-//     {step: "Pães", isActive: false},
-//     {step: "Carnes", isActive: false},
-//     {step: "Queijos", isActive: false},
-// ]
-
-
 const data = {
     paes: [
         {tipo: "Brioche", preco: 4.80},
@@ -12,14 +5,14 @@ const data = {
         {tipo: "Pão Australiano", preco: 4.00}
     ],
     carnes: [
-        {tipo: "Bovino", preco: 4.80},
-        {tipo: "Suíno", preco: 5.60},
+        {tipo: "Blend Bovino", preco: 4.80},
+        {tipo: "Blend Suíno", preco: 5.60},
         {tipo: "Veggie", preco: 7.60}
     ],
     queijos : [
-        {tipo: "Cheddar", preco: 4.80},
-        {tipo: "Prato", preco: 5.60},
-        {tipo: "Suíço", preco: 7.60}
+        {tipo: "Queijo Cheddar", preco: 4.80},
+        {tipo: "Queijo Prato", preco: 5.60},
+        {tipo: "Queijo Suíço", preco: 7.60}
     ],
     opcionais : [
         {tipo: "Cheddar", preco: 4.80},
@@ -28,46 +21,6 @@ const data = {
     ]
 }
 const resumo = document.querySelector(".resumo");
-
-// const progressBar = document.querySelector(".progress-bar");
-
-// let states = [
-//     "",
-//     "",
-//     "",
-//     "",
-// ];
-
-// progressBar.innerHTML = states.map( (state, index) =>{
-//     return `
-//         <div id="${index}" class="state">
-//             <p>${state}</p>
-//         </div>
-//     `
-// }).join("");
-
-// let steps = document.querySelectorAll(".state");
-// steps[0].classList.add("active");
-// for(let step of steps)
-// {
-//     step.addEventListener("click", (e)=> {
-//         removeActiveClass(steps);
-//         e.target.classList.add("active");
-        
-//     })
-// }
-
-// function removeActiveClass(arr)
-// {
-//     for(let i = 0; i < arr.length; i++)
-//     {
-//         if(arr[i].classList.contains("active"))
-//         {
-//             arr[i].classList.remove("active");
-//         }
-//     }
-// }
-
 
 let pedido = {};
 
@@ -125,7 +78,7 @@ const queijo = `
 </div>
 `
 
-let estados = [pão, carne, queijo, "Opcionais"];
+let estados = [pão, carne, queijo];
 let estado = 0;
 
 const displayPedido = document.querySelector("#pedido");
@@ -158,7 +111,9 @@ const btns = document.querySelectorAll(".action");
 addBehavior();
 addOptions();
 
-let resumoDiv = document.querySelector(".resumo");
+let resumoDiv = document.querySelector(".resumo__title");
+let total = document.querySelector(".total");
+
 
 function addOptions()
 {
@@ -169,6 +124,7 @@ function addOptions()
             pedidoFactory(data, e.target.parentNode.id, [e.target.value]);
             resumoDiv.style.visibility = "visible";
             atualizarDiv(e.target.parentNode.id, pedido[e.target.parentNode.id]);
+            total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
         })
     }
 }
@@ -185,16 +141,20 @@ function atualizarDiv(seletorCSS, conteudo)
     str += seletorCSS;
     let el = document.querySelector(str);
     let {tipo, preco} = conteudo;
-    el.innerHTML = `<span>${tipo}</span> <span>R$ ${preco}</span>`;
+    el.innerHTML = `<span>${tipo}</span> <span class="preco">R$ ${preco}</span>`;
+    el.style.visibility = "visible";
 }
 
-/**
- *  let novoItem = pedido[`${e.target.parentNode.id}`];
-            let itens = [];
-            itens.push(novoItem);
-            resumo.innerHTML += itens.map(item => {
-                return `
-                    <p>${item.tipo} - R$ ${item.preco}</p>
-                `
-            })
- */
+function pegarPreco(obj)
+{
+    let itens = Object.values(obj);
+    let soma = 0;
+    
+    for(let i = 0; i < itens.length; i++)
+    {
+        soma += itens[i].preco;
+    }
+        
+    return soma;
+
+}

@@ -62,11 +62,10 @@
     align-items: center;
     column-gap: .3em;
     visibility: hidden;
-
 }
 
 .resumo p{
-    border-left: 2px solid var(--preto);
+    border-left: 2px solid var(--vermelho);
 }
 
 .resumo p, .resumo .paes, .resumo .carnes, .resumo .queijos{
@@ -75,13 +74,40 @@
     background-color: var(--branco);
     padding: .9em;
     margin-top: .3em;
-    border-radius: .3em;
     text-align: center;
     width: 80%;
+    visibility: hidden;
+}
+
+.preco{
+    font-weight: bold;
 }
 
 .paes::before{
     content: url(../assets/pedido/bread.png);
-    width: 16px;
-    height: 16px;
+
+}
+
+.carnes::before{
+    content: url(../assets/pedido/meat.png);
+
+}
+
+.queijos::before{
+    content: url(../assets/pedido/cheese.png);
+
+}
+
+.total{
+    padding: 1em;
+    margin-top: .3em;
+    display: flex;
+    justify-content: flex-end; 
+    width: 80%;
+}
+
+.resumo__action{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
