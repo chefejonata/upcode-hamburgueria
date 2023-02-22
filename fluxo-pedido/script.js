@@ -20,6 +20,47 @@ const data = {
         {tipo: "Suíço", preco: 7.60}
     ]
 }
+const resumo = document.querySelector(".resumo");
+
+// const progressBar = document.querySelector(".progress-bar");
+
+// let states = [
+//     "",
+//     "",
+//     "",
+//     "",
+// ];
+
+// progressBar.innerHTML = states.map( (state, index) =>{
+//     return `
+//         <div id="${index}" class="state">
+//             <p>${state}</p>
+//         </div>
+//     `
+// }).join("");
+
+// let steps = document.querySelectorAll(".state");
+// steps[0].classList.add("active");
+// for(let step of steps)
+// {
+//     step.addEventListener("click", (e)=> {
+//         removeActiveClass(steps);
+//         e.target.classList.add("active");
+        
+//     })
+// }
+
+// function removeActiveClass(arr)
+// {
+//     for(let i = 0; i < arr.length; i++)
+//     {
+//         if(arr[i].classList.contains("active"))
+//         {
+//             arr[i].classList.remove("active");
+//         }
+//     }
+// }
+
 
 let pedido = {};
 let precoTotal = 0;
@@ -78,7 +119,7 @@ const queijo = `
 </div>
 `
 
-let estados = [pão, carne, queijo];
+let estados = [pão, carne, queijo, "Opcionais"];
 let estado = 0;
 
 const displayPedido = document.querySelector("#pedido");
@@ -119,7 +160,15 @@ function addOptions()
     {
         option.addEventListener("click", (e) =>{
             pedidoFactory(data, e.target.parentNode.id, [e.target.value]);
-            pegarPrecoTotal(pedido);
+            let novoItem = pedido[`${e.target.parentNode.id}`];
+            let itens = [];
+            itens.push(novoItem);
+            resumo.innerHTML += itens.map(item => {
+                return `
+                    <p>${item.tipo} - R$ ${item.preco}</p>
+                `
+            })
+            
         })
     }
 }
@@ -130,8 +179,5 @@ function pedidoFactory(data, query, index)
     pedido[query] = data[query][index];
 }
 
-function pegarPrecoTotal(pedido)
-{
-    let precos = Object.values(pedido);
-}
+
 
