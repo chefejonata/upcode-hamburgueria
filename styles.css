@@ -211,6 +211,7 @@ margin-bottom: 10px;
      
 }
 .texto-link{
+    justify-content: center;
     display: flex;
     margin: 12px;
     color: var(--branco);
