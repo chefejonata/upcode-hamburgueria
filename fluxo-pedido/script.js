@@ -128,6 +128,10 @@ function addOptions()
             resumoDiv.style.visibility = "visible";
             atualizarDiv(e.target.parentNode.id, pedido[e.target.parentNode.id]);
             total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
+            if(Object.keys(pedido).length >= 3)
+            {
+                document.querySelector(".finalizar-pedido").removeAttribute("disabled");
+            }
         })
     }
 }

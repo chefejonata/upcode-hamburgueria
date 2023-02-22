@@ -62,6 +62,8 @@
     align-items: center;
     column-gap: .3em;
     visibility: hidden;
+    margin-top: .9em;
+    margin-bottom: .5em;
 }
 
 .resumo p{
@@ -116,4 +118,6 @@
 
 .resumo__action button{
     padding: .9em;
+    margin-bottom: .5em;
+    cursor: pointer;
 }
