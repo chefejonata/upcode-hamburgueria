@@ -1,16 +1,9 @@
-let phases = [
-    {step: "Pães", isActive: false},
-    {step: "Carnes", isActive: false},
-    {step: "Queijos", isActive: false},
-]
+// let phases = [
+//     {step: "Pães", isActive: false},
+//     {step: "Carnes", isActive: false},
+//     {step: "Queijos", isActive: false},
+// ]
 
-let feedback = document.querySelector(".feedback-pedido");
-
-feedback.innerHTML = phases.map(phase => {
-    return `<div class=${phase.isActive ? "active" : "step"}>
-                ${phase.step}
-            </div>`
-}).join("")
 
 const data = {
     paes: [
@@ -77,7 +70,6 @@ const resumo = document.querySelector(".resumo");
 
 
 let pedido = {};
-let precoTotal = 0;
 
 const pão = `
     <div class="pedido-layout">
@@ -149,13 +141,11 @@ const btns = document.querySelectorAll(".action");
             if(btn.classList.contains("prox") && estado < estados.length - 1)
             {
                 displayPedido.innerHTML = estados[estado + 1];
-                document.querySelector(".resumo").innerHTML += `${Object.values(pedido)[estado].tipo}`
                 addBehavior();
                 addOptions();
                 estado++;
             } else if(btn.classList.contains("prev") && estado > 0){
                 displayPedido.innerHTML = estados[estado - 1];
-                document.querySelector(".resumo").innerHTML += `${Object.values(pedido)[estado].tipo}`
                 addBehavior();
                 addOptions();
                 estado--;
@@ -164,10 +154,11 @@ const btns = document.querySelectorAll(".action");
     }  
 }
 
-let preco = document.querySelector("#preco");
 
 addBehavior();
 addOptions();
+
+let resumoDiv = document.querySelector(".resumo");
 
 function addOptions()
 {
@@ -176,15 +167,8 @@ function addOptions()
     {
         option.addEventListener("click", (e) =>{
             pedidoFactory(data, e.target.parentNode.id, [e.target.value]);
-            let novoItem = pedido[`${e.target.parentNode.id}`];
-            let itens = [];
-            itens.push(novoItem);
-            resumo.innerHTML += itens.map(item => {
-                return `
-                    <p>${item.tipo} - R$ ${item.preco}</p>
-                `
-            })
-            
+            resumoDiv.style.visibility = "visible";
+            atualizarDiv(e.target.parentNode.id, pedido[e.target.parentNode.id]);
         })
     }
 }
@@ -195,5 +179,22 @@ function pedidoFactory(data, query, index)
     pedido[query] = data[query][index];
 }
 
+function atualizarDiv(seletorCSS, conteudo)
+{
+    let str = ".";
+    str += seletorCSS;
+    let el = document.querySelector(str);
+    let {tipo, preco} = conteudo;
+    el.innerHTML = `<span>${tipo}</span> <span>R$ ${preco}</span>`;
+}
 
-
+/**
+ *  let novoItem = pedido[`${e.target.parentNode.id}`];
+            let itens = [];
+            itens.push(novoItem);
+            resumo.innerHTML += itens.map(item => {
+                return `
+                    <p>${item.tipo} - R$ ${item.preco}</p>
+                `
+            })
+ */

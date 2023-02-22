@@ -17,7 +17,7 @@
 }
 
 .pedido__section{
-    background-color: var(--bege);
+    background-color: var(--branco);
 }
 .pedido-layout{
     display: flex;
@@ -48,34 +48,11 @@
     cursor: pointer;
 }
 
-.action{
-    
-}
 
 .progress-bar{
     display: flex;
     gap: .7em;
     justify-content: center;   
-}
-.state{
-    padding: .7em;
-    background-color: red;
-    width: 1px;
-    height: 1px;
-    transition: width .3s ease-in;
-    transition: height .3s ease-in;
-    border-radius: 50%;
-    position: relative;
-    z-index: 100;
-}
-
-
-.active{
-    width: 5px;
-    height: 5px;
-    transition: width .3s ease-out;
-    transition: height .3s ease-out;
-    background-color: blue;
 }
 
 .resumo {
@@ -84,12 +61,27 @@
     flex-direction: column;
     align-items: center;
     column-gap: .3em;
+    visibility: hidden;
+
 }
 
-.resumo p {
-    background-color: var(--verde-claro);
+.resumo p{
+    border-left: 2px solid var(--preto);
+}
+
+.resumo p, .resumo .paes, .resumo .carnes, .resumo .queijos{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--branco);
     padding: .9em;
+    margin-top: .3em;
     border-radius: .3em;
     text-align: center;
     width: 80%;
+}
+
+.paes::before{
+    content: url(../assets/pedido/bread.png);
+    width: 16px;
+    height: 16px;
 }
