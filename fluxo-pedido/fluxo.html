@@ -5,9 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./fluxo.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>UpBurger | Meus Pedidos</title>
 </head>
 <body class="pedido__section">
+    <aside class="menu">
+        <div class="botao sair menu-abrir">
+            <img class="imagem-sair" src="../menu lateral/logosair.svg" alt="icone sair">
+    </div>
+    <ul class="link">
+        <li>
+            <a href="#">Pedidos</a>
+        </li>
+        <li>
+            <a href="#">Cardapio</a>
+        </li>
+        <li>
+            <a href="#">Contatos</a>
+        </li>
+    </ul>
+</aside>
+
+    <header class="cabecalho">
+        <button class="cabecalho__menu menu-abrir">
+            <img class="cabecalho__menu--icone"src="../assets/header/menu-hamburguer.svg" alt="Abrir Menu" class="cabecalho__menu--icon">
+        </button>
+        <img  class="cabecalho__logo" src="../assets/header/logo.svg" alt="Logo UpBurger">
+    </header>
     <div id="pedido">
         
     </div>
@@ -23,6 +47,31 @@
             Finalizar Pedido
         </button>
     </div>
+
+    <footer class="footer">
+        <img class="footer__logo" src="../assets/footer/logo-branco.svg" alt="footer logo">
+        <div class="imagem-logo">
+            <a href="#"><img src="../assets/footer/logo-whatsapp.svg" alt="logo whatssap"></a>
+            <a href="#"><img src="../assets/footer/logo-instagram.svg" alt="logo instagram"></a>
+            <a href="#"><img src="../assets/footer/logo-twitter.svg" alt="logo logo-twitter"></a>
+        </div>
+        <div class="texto-link">
+            <ul class="link">
+                <li class="link-texto"><a class="link__texto" href="#">Sobre nós</li></a>
+                <li class="link-texto"><a class="link__texto" href="#">Trabalhe conosco</li></a>
+                <li class="link-texto"><a class="link__texto" href="#">SAC</li></a>
+            </ul>
+        </div>
+
+        <div class="texto-footer">
+            <P>Rua: Senador Pompeu</P>
+            <P>Centro CEP-600025-100</P>
+            <P>Email-upburg@email.com</P>
+            <P>Telefone (85) 94586-1457</P><br><br>
+            <p class="politica">Politica de privacidade</p>
+            <p class="copyright">© copyright - UP BURG 2023</p>
+        </div>
+    </footer>
 
 </body>
 <script src="./script.js"></script>

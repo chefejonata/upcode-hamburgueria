@@ -104,10 +104,16 @@
     display: flex;
     justify-content: flex-end; 
     width: 80%;
+    color: var(--verde);
+    font-weight: bold;
 }
 
 .resumo__action{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.resumo__action button{
+    padding: .9em;
 }

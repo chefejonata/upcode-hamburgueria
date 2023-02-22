@@ -21,7 +21,6 @@ const data = {
     ]
 }
 const resumo = document.querySelector(".resumo");
-
 let pedido = {};
 
 const pão = `
@@ -108,8 +107,12 @@ const btns = document.querySelectorAll(".action");
 }
 
 
-addBehavior();
-addOptions();
+(function(){
+    addBehavior();
+    addOptions();
+})();
+
+
 
 let resumoDiv = document.querySelector(".resumo__title");
 let total = document.querySelector(".total");
