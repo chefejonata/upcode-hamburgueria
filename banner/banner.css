@@ -14,7 +14,7 @@
     }
     
     .banner__imagem{
-        height: 221px;
+        height: 16rem;
         width: auto;
         background-image: url(../assets/banner/banner-principal.svg);
         display: flex;
@@ -24,12 +24,12 @@
 
     .banner__btn{
         background-color: var(--laranja);
-        height: 31px;
-        width: 208px;
+        height: 1.9375rem;
+        width: 13rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 15px;
+        margin-bottom: 0.9375rem;
         
 
     }
@@ -38,7 +38,7 @@
         color: var(--branco);
         text-decoration: none;
         font-family: var(--fonte);
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 700;
         
     }

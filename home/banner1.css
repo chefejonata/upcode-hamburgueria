@@ -17,14 +17,14 @@
 }
 
 .banner__1{
-    margin: 15px 15px;
+    margin: 0.9375em 0.9375em;
 }
 
 .banner__1-texto{
     font-family: var(--fonte);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
-    margin-bottom: 17px;
+    margin-bottom: 1.0625rem;
 }
 
 .banner__1-img{
