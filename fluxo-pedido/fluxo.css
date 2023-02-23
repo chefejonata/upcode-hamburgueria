@@ -134,3 +134,7 @@
     left: 60px;
     z-index: 1000;
 }
+
+select{
+    padding: 1em;
+}

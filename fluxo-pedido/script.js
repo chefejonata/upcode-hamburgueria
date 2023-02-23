@@ -35,29 +35,33 @@ let pedido = {};
 
 const pão = `
     <div class="pedido-layout">
-        <label for="paes">Escolha o seu tipo de pão: </label>
+
         <img src="https://www.allrecipes.com/thmb/cPjxWAmp-kUJiOniH5jfPGub7ug=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/1073329-belles-hamburger-buns-vrinda-4x3-1-10f86efd183744f0a42d751f7989968a.jpg" />
+        <label for="paes">Escolha o seu tipo de pão: </label>
             <div class="pedido-actions">
-                <button class="action prev">Anterior</button>
+                <button class="action prev">Voltar  </button>
                 <select id="paes">
+                    <option>-----------</option>
                     ${data.paes.map((pao, index) => {
                         return `<option class="option" value=${index}>
                             ${pao.tipo}
                         </option>`
                     }).join("")}
                 </select>
-                <button class="action prox">Próximo</button>
+                <button class="action prox">Prosseguir</button>
             </div>
     </div>
 `;
 
 const carne = `
 <div class="pedido-layout">
-    <label for="carnes">Escolha seu tipo de carne: </label>
+    
     <img src="https://bbqhost.com/wp-content/uploads/2021/10/3.-grilled-ground-beef-patty-720x405.jpg" />
+    <label for="carnes">Escolha seu tipo de carne: </label>
     <div class="pedido-actions">
         <button class="action prev">Anterior</button>
         <select id="carnes">
+        <option>-----------</option>
     ${data.carnes.map((carne, index) => {
         return `<option class="option" value=${index}>
             ${carne.tipo}
@@ -71,11 +75,13 @@ const carne = `
 
 const queijo = `
 <div class="pedido-layout">
-    <label for="queijos">Escolha seu tipo de queijo: </label>
+    
     <img src="https://revistamenu.com.br/wp-content/uploads/2019/08/gravidade-2-peq-1050x698.jpg" />
+    <label for="queijos">Escolha seu tipo de queijo: </label>
     <div class="pedido-actions">
         <button class="action prev">Anterior</button>
         <select id="queijos">
+        <option>-----------</option>
         ${data.queijos.map((queijo, index) => {
             return `<option class="option" value=${index}>
                 ${queijo.tipo}
@@ -126,7 +132,7 @@ function addOptions()
 
     const select = document.querySelector("select");
 
-        select.addEventListener("change", (e) =>{
+        select.addEventListener("input", (e) =>{
             pedidoFactory(data, e.target.id, e.target.value);
             resumoDiv.style.visibility = "visible";
             atualizarDiv(e.target.id, pedido[e.target.id]);
@@ -167,7 +173,6 @@ function pegarPreco(obj)
     {
         soma += itens[i].preco;
     }
-        
     return soma;
 
 }
