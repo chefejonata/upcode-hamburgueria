@@ -124,35 +124,18 @@ let total = document.querySelector(".total");
 function addOptions()
 {
 
-    const options = document.querySelectorAll(".option");
+    const select = document.querySelector("select");
 
-    options.forEach(option => {
-        option.addEventListener("click", (e) =>{
-        pedidoFactory(data, e.target.parentNode.id, e.target.value);
-        resumoDiv.style.visibility = "visible";
-        atualizarDiv(e.target.parentNode.id, pedido[e.target.parentNode.id]);
-        total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
-        if(Object.keys(pedido).length >= 3)
-        {
-           btnFinalizar.removeAttribute("disabled");
-        }
-    })
-})
-
-    // for(let option of options)
-    // {
-    //     option.addEventListener("click", (e) =>{
-    //         console.log("oi");
-    //         pedidoFactory(data, e.target.parentNode.id, e.target.value);
-    //         resumoDiv.style.visibility = "visible";
-    //         atualizarDiv(e.target.parentNode.id, pedido[e.target.parentNode.id]);
-    //         total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
-    //         if(Object.keys(pedido).length >= 3)
-    //         {
-    //            btnFinalizar.removeAttribute("disabled");
-    //         }
-    //     })
-    // }
+        select.addEventListener("change", (e) =>{
+            pedidoFactory(data, e.target.id, e.target.value);
+            resumoDiv.style.visibility = "visible";
+            atualizarDiv(e.target.id, pedido[e.target.id]);
+            total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
+            if(Object.keys(pedido).length >= 3)
+            {
+               btnFinalizar.removeAttribute("disabled");
+            }
+        })
 }
 
 (function(){
