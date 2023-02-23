@@ -23,6 +23,7 @@
 
 body{
     position: relative;
+    overflow-x: hidden;
 }
 
 .menu{
@@ -152,8 +153,7 @@ a{
 
 .banner__1-img{
     display: flex;
-    justify-content: space-between;
-    transition: filter .7s ease-in-out;
+    gap: 18px;
 }
 
 
@@ -166,12 +166,21 @@ a{
 }
 
 .banner3 {
-    text-align: center;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
+.banner3__img{
+    height: 173px;
+    width: 100%;
+}
 
 .legenda_banner3 {
-      
+      text-align: center;
+      padding: 15px;
       font-family: var(--fonte);
       font-weight: 600;
 }
