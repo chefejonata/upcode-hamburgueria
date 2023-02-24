@@ -13,18 +13,18 @@
 .banner2{
     font-family: var(--fonte);
     display: flex;
-    margin: 15px 15px;
+    margin: 0.9375rem 0.9375rem;
     justify-content: space-between;
-    gap: 18px;
+    gap: 1.125rem;
 }
 
 .titulo_banner2{
-font-size: 14px;
+font-size: 0.875rem;
 font-weight: 600;
-margin-bottom: 10px;
+margin-bottom: 0.625rem;
 }
 
 .descricao_banner2{
-    font-size: 12px;
+    font-size: 0.75rem;
 
 }

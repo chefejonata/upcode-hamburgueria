@@ -52,7 +52,7 @@ body{
 }
 li{
     list-style-type: none;
-    margin-bottom: 22px;
+    margin-bottom: 1.375rem;
     
 }
 a{
@@ -65,7 +65,7 @@ a{
     font-family: "Montserrat", sans;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 25px;
+    padding: 1.5625rem;
 
 }
 .link:hover{
