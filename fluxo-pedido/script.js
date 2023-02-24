@@ -32,6 +32,7 @@ btnFinalizar.addEventListener("click", () => {
     document.body.appendChild(modal);
 })
 let pedido = {};
+let pedidos = [];
 
 const pão = `
     <div class="pedido-layout">
@@ -39,7 +40,7 @@ const pão = `
         <img src="https://www.allrecipes.com/thmb/cPjxWAmp-kUJiOniH5jfPGub7ug=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/1073329-belles-hamburger-buns-vrinda-4x3-1-10f86efd183744f0a42d751f7989968a.jpg" />
         <label for="paes">Escolha o seu tipo de pão: </label>
             <div class="pedido-actions">
-                <button class="action prev">Voltar  </button>
+                <button class="action prev">Voltar</button>
                 <select id="paes">
                     <option>-----------</option>
                     ${data.paes.map((pao, index) => {
@@ -57,9 +58,9 @@ const carne = `
 <div class="pedido-layout">
     
     <img src="https://bbqhost.com/wp-content/uploads/2021/10/3.-grilled-ground-beef-patty-720x405.jpg" />
-    <label for="carnes">Escolha seu tipo de carne: </label>
+    <label for="carnes">Escolha o seu tipo de carne: </label>
     <div class="pedido-actions">
-        <button class="action prev">Anterior</button>
+        <button class="action prev">Voltar</button>
         <select id="carnes">
         <option>-----------</option>
     ${data.carnes.map((carne, index) => {
@@ -68,7 +69,7 @@ const carne = `
         </option>`
     }).join("")}
         </select>
-        <button class="action prox">Próximo</button>
+        <button class="action prox">Prosseguir</button>
     </div>
 </div>
 `
@@ -77,9 +78,9 @@ const queijo = `
 <div class="pedido-layout">
     
     <img src="https://revistamenu.com.br/wp-content/uploads/2019/08/gravidade-2-peq-1050x698.jpg" />
-    <label for="queijos">Escolha seu tipo de queijo: </label>
+    <label for="queijos">Escolha o seu tipo de queijo: </label>
     <div class="pedido-actions">
-        <button class="action prev">Anterior</button>
+        <button class="action prev">Voltar</button>
         <select id="queijos">
         <option>-----------</option>
         ${data.queijos.map((queijo, index) => {
@@ -88,7 +89,7 @@ const queijo = `
             </option>`
         }).join("")}
         </select>
-        <button class="action prox">Próximo</button>
+        <button class="action prox">Prosseguir</button>
     </div>
 </div>
 `
@@ -125,8 +126,6 @@ const btns = document.querySelectorAll(".action");
 
 let resumoDiv = document.querySelector(".resumo__title");
 let total = document.querySelector(".total");
-
-
 function addOptions()
 {
 
@@ -134,9 +133,10 @@ function addOptions()
 
         select.addEventListener("input", (e) =>{
             pedidoFactory(data, e.target.id, e.target.value);
+            document.querySelector(".carrinho-contador").innerHTML = 99;
             resumoDiv.style.visibility = "visible";
             atualizarDiv(e.target.id, pedido[e.target.id]);
-            total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;
+            total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;            
             if(Object.keys(pedido).length >= 3)
             {
                btnFinalizar.removeAttribute("disabled");

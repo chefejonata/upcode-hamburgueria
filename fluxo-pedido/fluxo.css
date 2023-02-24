@@ -138,3 +138,24 @@
 select{
     padding: 1em;
 }
+
+.resumo__title{
+    position: relative;
+}
+
+.resumo__title::after{
+    content: url(../assets/pedido/shopping-cart.png);
+}
+
+.carrinho-contador{
+    position: absolute;
+    right: 0px;
+    background-color: var(--vermelho);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px ;
+    height: 18px ;
+    padding: .5em;
+    border-radius: 50%;
+}
