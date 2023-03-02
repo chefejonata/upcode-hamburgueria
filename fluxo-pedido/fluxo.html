@@ -9,9 +9,10 @@
     <title>UpBurger | Meus Pedidos</title>
 </head>
 <body class="pedido__section">
+    <div class="teste"></div>
     <aside class="menu">
-        <div class="botao sair menu-abrir">
-           <img class="imagem-sair" src="../menu lateral/logosair.svg" alt="icone sair" >
+        <div class="botao sair menu-abri btns">
+           <img class="imagem-sair" src="../menu-lateral/logosair.svg" alt="icone sair" >
     </div>
     <ul class="link">
         <li>
@@ -27,7 +28,7 @@
 </aside>
 
     <header class="cabecalho">
-        <button class="cabecalho__menu menu-abrir">
+        <button class="cabecalho__menu menu-abrir btns">
             <img class="cabecalho__menu--icone"src="../assets/header/menu-hamburguer.svg" alt="Abrir Menu" class="cabecalho__menu--icon">
         </button>
         <a href="../index.html"><img  class="cabecalho__logo" src="../assets/header/logo.svg" alt="Logo UpBurger"></a>
@@ -43,11 +44,11 @@
     </div>
     <div class="total"></div>
     <div class="resumo__action">
-        <button class="finalizar-pedido" disabled>
-            Finalizar Pedido
+        <button class="continuar add">
+            Adicionar burger
         </button>
-        <button class="continuar">
-            Adicionar Pedido
+        <button class="finalizar-pedido modal-open" data-id="modal-container" disabled>
+            Finalizar Compra
         </button>
     </div>
 
@@ -78,4 +79,20 @@
 
 </body>
 <script src="./script.js"></script>
+<script>
+    let btns = document.querySelectorAll(".btns");
+    let menu = document.querySelector(".menu");
+    for(let btn of btns)
+    {
+        btn.addEventListener("click", () =>{
+            menu.classList.toggle("ativa");
+        })
+    }
+
+    let footerDinamico = document.querySelector(".copyright");
+    let dataAtual = new Date();
+    let anoAtual = dataAtual.getFullYear();
+
+    footerDinamico.textContent = `© Copyright - UP BURGER ${anoAtual}`
+</script>
 </html>

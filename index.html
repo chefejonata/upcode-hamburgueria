@@ -11,11 +11,11 @@
 <body class="gambiarra" >
     <aside class="menu">
         <div class="botao sair menu-abrir">
-            <img class="imagem-sair" src="../menu lateral/logosair.svg" alt="icone sair">
+            <img class="imagem-sair" src="./menu-lateral/logosair.svg" alt="icone sair">
     </div>
     <ul class="link">
         <li>
-            <a href="#">Pedidos</a>
+            <a href="./fluxo-pedido/fluxo.html">Pedidos</a>
         </li>
         <li>
             <a href="#">Cardapio</a>
@@ -87,7 +87,6 @@
         </div>
     </footer>
 </body>
-<script src="./index.js"></script>
 <script>
     let menu = document.querySelector(".menu");
     let teste = document.querySelector(".teste");
@@ -99,7 +98,7 @@
 
     for (let btn of btns)
     {
-        btn.addEventListener("click", (e) =>{
+        btn.addEventListener("click", () =>{
         menu.classList.toggle("ativa");
         header.classList.toggle("body-blur");
         banner.classList.toggle("body-blur");

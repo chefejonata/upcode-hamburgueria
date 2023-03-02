@@ -21,18 +21,24 @@ const data = {
     ]
 }
 
+let pedido = {};
+let pedidos = [];
+let modalDeCompra = document.createElement("div");
+let btnAdd = document.querySelector(".add");
+
+btnAdd.addEventListener("click", incluirNovoPedido);
+
 const resumo = document.querySelector(".resumo");
 let btnFinalizar = document.querySelector(".finalizar-pedido");
 btnFinalizar.addEventListener("click", () => {
-    let modal = document.createElement("div");
-    modal.innerHTML = `
-            <div class="modal">
-                <h3>Seu pedido foi realizado com sucesso!</h3>
-            </div>`;
-    document.body.appendChild(modal);
+    habilitarCheckout();
 })
-let pedido = {};
-let pedidos = [];
+
+
+function fecharModal(e)
+{
+    return e.target
+}
 
 const pão = `
     <div class="pedido-layout">
@@ -40,7 +46,7 @@ const pão = `
         <img src="https://www.allrecipes.com/thmb/cPjxWAmp-kUJiOniH5jfPGub7ug=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/1073329-belles-hamburger-buns-vrinda-4x3-1-10f86efd183744f0a42d751f7989968a.jpg" />
         <label for="paes">Escolha o seu tipo de pão: </label>
             <div class="pedido-actions">
-                <button class="action prev">Voltar</button>
+                <button class="action prev" disabled>Voltar</button>
                 <select id="paes">
                     <option>-----------</option>
                     ${data.paes.map((pao, index) => {
@@ -89,7 +95,7 @@ const queijo = `
             </option>`
         }).join("")}
         </select>
-        <button class="action prox">Prosseguir</button>
+        <button class="action prox" disabled>Prosseguir</button>
     </div>
 </div>
 `
@@ -99,11 +105,10 @@ let estado = 0;
 
 const displayPedido = document.querySelector("#pedido");
 
-displayPedido.innerHTML = estados[estado];
-
 function addBehavior()
 {
 const btns = document.querySelectorAll(".action");
+
     for (let btn of btns)
     {
         btn.addEventListener("click", ()=>{
@@ -133,7 +138,7 @@ function addOptions()
 
         select.addEventListener("input", (e) =>{
             pedidoFactory(data, e.target.id, e.target.value);
-            document.querySelector(".carrinho-contador").innerHTML = 99;
+            document.querySelector(".carrinho-contador").innerHTML = pedidos.length;
             resumoDiv.style.visibility = "visible";
             atualizarDiv(e.target.id, pedido[e.target.id]);
             total.innerHTML = `Total: R$ ${pegarPreco(pedido).toFixed(2)}`;            
@@ -142,12 +147,31 @@ function addOptions()
                btnFinalizar.removeAttribute("disabled");
             }
         })
+
 }
 
 (function(){
+    displayPedido.innerHTML = estados[estado];  
     addBehavior();
     addOptions();
 })();
+
+
+function incluirNovoPedido()
+{
+    if(Object.keys(pedido).length < 3)
+    {
+        alert("Pedido incompleto. Por favor, selecione todos os ingredientes")
+        return;
+    }
+    pedidos.push(pedido);
+    pedido = {};
+    document.querySelector(".carrinho-contador").innerHTML = pedidos.length;
+    document.querySelector(".paes").style.visibility = "hidden";
+    document.querySelector(".carnes").style.visibility = "hidden";
+    document.querySelector(".queijos").style.visibility = "hidden";
+    total.innerHTML = "Total: R$ 0.00"
+}
 
 function pedidoFactory(data, query, index)
 {
@@ -168,11 +192,64 @@ function pegarPreco(obj)
 {
     let itens = Object.values(obj);
     let soma = 0;
-    
+
     for(let i = 0; i < itens.length; i++)
     {
         soma += itens[i].preco;
     }
     return soma;
+
+}
+
+let totalCart = 0;
+
+function habilitarCheckout()
+{
+
+    let totalCart = 0;
+    
+    for(let k = 0; k < pedidos.length; k++)
+    {
+        for(let m = 0; m < 3; m ++)
+        {
+            totalCart += Object.values(pedidos[k])[m].preco;
+        }
+    }
+
+    modalDeCompra.innerHTML =  `
+    <div id="modal-container" class="modal-container" open="false" role="dialog" tab-index="-1">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3>Checkout: </h3>
+                <button class="modal-close"></button>
+            </div>
+            <div class="cart-pedidos">
+                ${
+                    pedidos.length > 0 ? pedidos.map(item => `<p class="cart-pedido">${item.paes["tipo"]}, ${item.carnes["tipo"]}, ${item.queijos["tipo"].substring(0,3)}...</p>
+                                                            `).join("") :
+                    pedido.map(item => `<p class="cart-pedido">${item.paes["tipo"]}, ${item.carnes["tipo"]}...</p>`).join("") 
+                }
+            </div>
+            <div class="cart-total">Total: R$
+                ${totalCart}
+            </div>
+            <div class="cart-actions">
+                <button>Finalizar</button>
+                <button>Cancelar</button>
+            </div>
+            
+        </>
+    </di>
+`
+    let overlay = document.createElement("div");
+    overlay.id = "modal-overlay"
+    let teste = document.querySelector(".teste");
+    teste.appendChild(overlay);
+    teste.appendChild(modalDeCompra);   
+
+    document.querySelector(".modal-close").addEventListener("click", () =>{
+        teste.removeChild(overlay);
+        teste.removeChild(modalDeCompra);
+    });
 
 }

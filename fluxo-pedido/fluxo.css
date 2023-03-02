@@ -79,7 +79,7 @@
     margin-top: .3em;
     text-align: center;
     width: 80%;
-    visibility: hidden;
+
 }
 
 .preco{
@@ -124,17 +124,6 @@
     cursor: pointer;
 }
 
-.modal {
-    padding: .7em;
-    width: 270px;
-    height: 600px;
-    background-color: var(--verde);
-    position: absolute;
-    top: 200px;
-    left: 60px;
-    z-index: 1000;
-}
-
 select{
     padding: 1em;
 }
@@ -158,4 +147,96 @@ select{
     height: 18px ;
     padding: .5em;
     border-radius: 50%;
+}
+
+.modal-container{
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.open
+{
+    display: flex;
+}
+
+.modal-content .modal-header{
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: .7em;
+    width: 90vw;
+    height: 400px;
+    background-color: var(--verde);
+    z-index: 1001;
+    border-radius: 15px;
+}
+
+#modal-overlay
+{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-color: black;
+    opacity: 0.5;  
+    
+}
+
+.modal-close{
+    background-image: url(../menu-lateral/logosair.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: .7em;
+}
+
+.cart-pedidos{
+    display: flex;
+    flex-direction: column;
+    gap: .5em
+}
+
+.cart-pedido{
+    display: flex;
+    padding: .5em;
+    gap: .5em;
+    align-items: center;
+    background-color: var(--verde-claro);
+    opacity: .8;
+    border-radius: 15px;
+    color: var(--cinza);
+}
+
+.cart-pedido::before{
+    content: url(../assets/pedido/burger.png);
+}
+
+.cart-total{
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em;
+    margin-top: .5em;
+}
+
+.cart-actions{
+    position: absolute;
+    display: flex;
+    column-gap: .5em;
+    width: 80%;
+    flex-direction: column;
+    top:70%;
+    right: 30px;
 }
