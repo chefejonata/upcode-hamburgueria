@@ -231,11 +231,11 @@ function habilitarCheckout()
                 }
             </div>
             <div class="cart-total">Total: R$
-                ${totalCart}
+                ${totalCart.toFixed(2)}
             </div>
             <div class="cart-actions">
-                <button>Finalizar</button>
-                <button>Cancelar</button>
+                <button class="checkout">Finalizar</button>
+                <button class="cancel">Cancelar</button>
             </div>
             
         </>
@@ -247,9 +247,29 @@ function habilitarCheckout()
     teste.appendChild(overlay);
     teste.appendChild(modalDeCompra);   
 
+    
+
     document.querySelector(".modal-close").addEventListener("click", () =>{
         teste.removeChild(overlay);
         teste.removeChild(modalDeCompra);
     });
 
+    let finalBtns = document.querySelectorAll(".cart-actions button");
+
+    for(let btnFinal of finalBtns)
+    {
+        btnFinal.addEventListener("click", (e) =>{
+            if(e.target.textContent.includes("Finalizar"))
+            {
+                alert("Sua compra foi finalizada com sucesso!");
+
+                location.reload();
+            } else{
+                alert("Sua compra foi cancelada :(");
+                location.reload();
+            }
+        })
+    }
+
 }
+

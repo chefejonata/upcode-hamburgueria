@@ -155,6 +155,7 @@ select{
     align-items: center;
     justify-content: center;
     position: fixed;
+    overflow-y: scroll;
     z-index: 1;
     width: 100%;
     height: 100%;
