@@ -8,7 +8,7 @@
     <title>Hamburgueria UpCode</title>
 </head>
 
-<body class="gambiarra" >
+<body class="bd" >
     <aside class="menu">
         <div class="botao sair menu-abrir">
             <img class="imagem-sair" src="./menu-lateral/logosair.svg" alt="icone sair">
@@ -91,7 +91,7 @@
     let menu = document.querySelector(".menu");
     let teste = document.querySelector(".teste");
     let btns = document.querySelectorAll(".menu-abrir");
-    let bd = document.querySelector(".gambiarra");
+    let bd = document.querySelector(".bd");
     let header = document.querySelector(".cabecalho");
     let banner = document.querySelector(".banner__imagem");
     let bn = document.querySelector(".banner__1");
@@ -100,16 +100,16 @@
     {
         btn.addEventListener("click", () =>{
         menu.classList.toggle("ativa");
-        header.classList.toggle("body-blur");
-        banner.classList.toggle("body-blur");
-        bn.classList.toggle("body-blur");
+        // header.classList.toggle("body-blur");
+        // banner.classList.toggle("body-blur");
+        // bn.classList.toggle("body-blur");
         });
     }
 
     
 
     bd.addEventListener("click", (e) => {
-        if(e.target.parentNode.classList.contains("gambiarra"))
+        if(e.target.parentNode.classList.contains("bd"))
         {
            menu.classList.remove("ativa");
            bd.classList.remove("body-blur");
